@@ -33,4 +33,4 @@
 - [Reference Overview](./reference/overview.md)
 - [Home Assistant OS](./reference/ha-os.md)
 - [FAQ](./reference/faq.md)
-- [Exergy Website](./reference/exergy.md)
+
