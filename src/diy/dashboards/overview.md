@@ -1,4 +1,4 @@
-# Dashboard Templates
+# Exergy Home Assistant Dashboard Templates
 
 Pre-built Home Assistant dashboards for monitoring and controlling your hashrate heating system.
 

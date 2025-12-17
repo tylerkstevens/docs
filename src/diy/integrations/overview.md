@@ -1,4 +1,4 @@
-# Home Assistant Integrations
+# Exergy Home Assistant Integrations
 
 Custom integrations for connecting mining hardware to Home Assistant.
 

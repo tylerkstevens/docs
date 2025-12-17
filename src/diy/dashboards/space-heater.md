@@ -1,4 +1,4 @@
-# Space Heater Digital Thermostat
+# Space Heater Digital Thermostat - Exergy HA Dashboard
 
 A dashboard that displays your miner as a digital thermostat, showing temperature, controls, and mining stats in one view.
 

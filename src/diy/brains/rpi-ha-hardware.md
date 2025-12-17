@@ -1,4 +1,4 @@
-# Hardware Setup
+# Raspberry Pi Home Assistant Hardware Setup
 
 Everything you need to build a Raspberry Pi-based Home Assistant controller.
 

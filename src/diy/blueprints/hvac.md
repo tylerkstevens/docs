@@ -1,4 +1,4 @@
-# HVAC Integrated Thermostat Control
+# HVAC Integrated Thermostat Control - Exergy HA Blueprint
 
 Integrate your bitcoin miner into your home's HVAC system as "Stage 1" heating, with your existing furnace as backup.
 

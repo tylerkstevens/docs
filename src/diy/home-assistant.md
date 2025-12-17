@@ -1,6 +1,6 @@
 # Home Assistant
 
-Home Assistant is a free, open-source home automation platform that puts local control and privacy first. It's the foundation of the Exergy smart heating system—a home control brain that brings together all smart devices into a single, self-hosted control software.
+Home Assistant is a free, open-source home automation platform that puts local control and privacy first. It's an excellent foundation for hashrate heating and monetizing solar.  Custom Exergy integrations enable bitcoin miners to easily become IoT devices that can interact with and be controled via a smart home interface.
 
 ## Why Home Assistant?
 
@@ -9,7 +9,7 @@ Home Assistant is a free, open-source home automation platform that puts local c
 - **Runs on your hardware** - No cloud dependency
 - **Your data stays local** - Privacy by design
 - **No subscriptions** - One-time hardware cost, free software
-- **Works offline** - Internet outage doesn't break your heating
+- **Works offline** - Internet outage doesn't break your local device control
 
 ### Powerful Automation
 
@@ -25,7 +25,7 @@ Home Assistant is a free, open-source home automation platform that puts local c
 
 ## What You'll Find in This Section
 
-This documentation covers running Home Assistant for hashrate heating:
+This documentation covers running Home Assistant with Exergy integrations bitcoin mining and hashrate heating:
 
 - **[Build Your Own HA Brain](./brains/overview.md)** - Hardware and software setup to run your own Home Assistant
 - **[Exergy HA Integrations](./integrations/overview.md)** - Connect your bitcoin miners to Home Assistant

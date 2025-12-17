@@ -1,4 +1,4 @@
-# Exergy Canaan Integration
+# Canaan Avalon Home - Exergy Home Assistant Integration
 
 Full control of Canaan Avalon miners through Home Assistant.
 

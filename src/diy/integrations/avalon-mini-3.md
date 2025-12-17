@@ -1,4 +1,4 @@
-# Canaan Avalon Mini 3
+# Canaan Avalon Mini 3 in Home Assistant
 
 The Avalon Mini 3 is a compact bitcoin miner designed for home heating applications.
 

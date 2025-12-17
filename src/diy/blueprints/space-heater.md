@@ -1,4 +1,4 @@
-# Space Heater Thermostat Control
+# Space Heater Thermostat Control - Exergy HA Blueprint
 
 Control your bitcoin miner like a traditional space heater with thermostatic temperature control.
 

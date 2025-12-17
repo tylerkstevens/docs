@@ -1,4 +1,4 @@
-# Canaan Avalon Q
+# Canaan Avalon Q in Home Assistant
 
 The Avalon Q is a higher-performance bitcoin miner suitable for larger heating applications.
 

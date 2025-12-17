@@ -1,4 +1,4 @@
-# Time of Use Control
+# Time of Use Control - Exergy HA Blueprint
 
 Schedule your bitcoin miner to run during specific times based on electricity rates, daily schedules, or personal preferences.
 

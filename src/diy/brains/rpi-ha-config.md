@@ -1,4 +1,4 @@
-# System Configuration
+# Raspberry Pi Home Assistant System Configuration
 
 Install Home Assistant OS and configure it for hashrate heating control.
 

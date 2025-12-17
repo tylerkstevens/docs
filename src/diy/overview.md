@@ -1,60 +1,63 @@
 # DIY Overview
 
-Build your own sovereign smart home today. Integrate hashrate heating to monetize warmth and maximize your building efficiency.
+The core piece of a sovereign smart home is a physical computer (home brain) that lives in your building, running 24/7 to manage all smart devices. 
 
-This section walks through our open-source documentation on how to run your own self-hosted smart home system, integrate bitcoin miners into the broader home IoT network, and build automations and dashboards that help you take advantage of hashrate heating.
+Hashrate heaters, small desktop bitcoin miners, thermostats, lights, alarms, blinds, etc... are all smart devices that need to connect to the home brain to talk to one another and operate as a cohesive system.
 
-## Why DIY?
+This section walks through our open-source documentation on how to build and run your own self-hosted smart home brain, integrate bitcoin miners and hashrate heaters into the broader home IoT network, and build automations and dashboards that help you take advantage of hashrate heating.
 
-- **Learn** - Understand every component of your system
-- **Customize** - Build exactly what you need
+# Why DIY?
+
+- **Learn** - Understand, inspect and verify every component of your system
+- **Customize** - Build exactly what you need, nothing more
 - **Save** - Use hardware you already own
-- **Self-sovereign** - No reliance on any vendor
+- **Self-sovereign** - No reliance on any specific vendor or service provider
 
-## What's Available
+# Sovereign Smart Home Brains
+
+## 1. Home Assistant
+[Home Assistant](https://www.home-assistant.io) OS (HAOS) is a minimalistic, embedded operating system optimized for running the Home Assistant smart home platform, providing a robust, maintenance-free environment for local automation on devices like single-board computers or dedicated hardware.
 
 | Section | Description |
 |---------|-------------|
-| [Build Your Own Brain](./brains/overview.md) | Set up your Home Assistant smart device control brain |
-| [Integrations](./integrations/overview.md) | Connect bitcoin miners to your smart home with Exergy integrations |
-| [Blueprints](./blueprints/overview.md) | Automation templates that define when things run, what they connect to, and more |
-| [Dashboards](./dashboards/overview.md) | Visualize your sovereign smart home and control everything remotely |
+| [Build Your Own HA Brain](./brains/overview.md) | Build and set up your Home Assistant smart device control brain on various hardware systems |
+| [HA Integrations](./integrations/overview.md) | Use Exergy integration applications to connect  bitcoin miners and more to your smart home |
+| [HA Blueprints](./blueprints/overview.md) | Automation templates that define when things run, what they connect to, and more |
+| [HA Dashboards](./dashboards/overview.md) | Visualize your sovereign smart home and control everything remotely |
 
-## The DIY Path
+### Home Assistant DIY Overview
 
-### Step 1: Set Up Home Assistant
+#### Step 1: Set Up Home Assistant
+[Raspberry Pi](./diy/brains/rpi-ha.md)
 
-Install Home Assistant on your hardware of choice—Raspberry Pi, or any compatible platform. Make your smart home sovereign.
+- Build the required hardware and install Home Assistant. Complete the setup and configure get your home brain ready for hashrate heating.
 
-*Documentation for StartOS and Umbrel servers coming soon.*
+*Exergy Home Assistant Documentation for StartOS and Umbrel servers coming soon.*
 
-### Step 2: Set Up Hashrate Heating Hardware
+#### Step 2: Set Up Hashrate Heating Hardware
 
-Choose your bitcoin mining heater (Avalon Mini 3, Avalon Q, or Nano 3s) and connect it to your local network.
+- Choose your favorite bitcoin mining heater (Avalon Mini 3, Avalon Q, or Nano 3s), follow the initial device setup and connect it to your local network.
 
-### Step 3: Add Integrations
+#### Step 3: Add Integrations
+[Exergy HA Integrations](./diy/integrations/overview.md)
 
-Install the Exergy integrations to connect Home Assistant to your mining hardware and mining pool.
+- Install the Exergy integrations (like applications on HA) to easily connect and manage your hashrate heaters in your soverign smart home, with real time control and data read outs.
 
-### Step 4: Configure Automations
+#### Step 4: Configure Automations
+[Exergy HA Automation Blueprints](./diy/blueprints/overview.md)
 
-Use our blueprints as a starting point, or build your own automations from scratch. Tie together heat, thermostats, miners, temperature sensors, timing, and more.
+- Use our blueprints as a starting point, or build your own automations from scratch. Tie together heat, thermostats, miners, temperature sensors, timing, and more.
 
-### Step 5: Build Your Dashboard
+#### Step 5: Build Your Dashboard
+[Exergy HA Dashboard Templates](./diy/dashboards/overview.md)
 
-Create a control interface using our templates or design your own. Visualize everything at a glance and control from anywhere.
+- Create a control interface using our templates or design your own. Visualize everything at a glance and control from anywhere.
 
-## GitHub
+# GitHub
 
-All Exergy code is open source:
+Find all open-source Exergy code on our Github:
 
 **[github.com/exergyheat](https://github.com/exergyheat)**
-
-## Community
-
-- **[Community Guides Forum](https://support.exergyheat.com/c/guides/6)** - Share your setups and discover tips
-- **[Software Support Forum](https://support.exergyheat.com/c/sw-support/14)** - Get help with configurations
-- **[GitHub Issues](https://github.com/exergyheat)** - Report bugs, request features, submit PRs
 
 ## Contributing
 
@@ -66,3 +69,9 @@ We welcome contributions:
 - Documentation updates
 
 See individual GitHub repositories for contribution guidelines.
+
+# Community
+
+- **[Community Guides Forum](https://support.exergyheat.com/c/guides/6)** - Share your smart home automations, dashboards and discover tips
+- **[Software Support Forum](https://support.exergyheat.com/c/sw-support/14)** - Get help with specific issues
+- **[GitHub Issues](https://github.com/exergyheat)** - Report bugs, request features, submit PRs

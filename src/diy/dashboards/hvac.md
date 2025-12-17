@@ -1,4 +1,4 @@
-# HVAC Integrated Wall+Digital Thermostat
+# HVAC Integrated Wall+Digital Thermostat - Exergy HA Dashboard
 
 A dashboard for monitoring your hybrid heating system - combining wall thermostat control with miner status and bitcoin earnings.
 
