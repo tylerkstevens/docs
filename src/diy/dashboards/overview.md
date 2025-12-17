@@ -1,3 +1,4 @@
+<!--explain at a high level what home assistant dashboards are, why exergy made our own, and what they do-->
 # Exergy Home Assistant Dashboard Templates
 
 Pre-built Home Assistant dashboards for monitoring and controlling your hashrate heating system.

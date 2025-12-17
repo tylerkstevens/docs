@@ -1,3 +1,4 @@
+<!--explain the high level purpose of this docs website-->
 # Introduction
 
 Welcome to the **Exergy Documentation** - your guide to the soverign smart building - maximzing efficiency and monetizing heat.

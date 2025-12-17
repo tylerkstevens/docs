@@ -1,3 +1,4 @@
+<!--explain the high level overview of the DIY section of the docs website-->
 # DIY Overview
 
 The core piece of a sovereign smart home is a physical computer (home brain) that lives in your building, running 24/7 to manage all smart devices. 

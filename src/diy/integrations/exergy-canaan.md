@@ -1,3 +1,4 @@
+<!--explain in a detailed manner what the canaan avalon home miner integration does, how to install it and use it-->
 # Canaan Avalon Home - Exergy Home Assistant Integration
 
 Full control of Canaan Avalon miners through Home Assistant.
