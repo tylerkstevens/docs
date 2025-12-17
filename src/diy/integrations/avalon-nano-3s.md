@@ -1,3 +1,4 @@
+<!--explain in detail how to interact with, interperet sensor data, send commands, and view information for an avalon nano3s in ha using our canaan integration-->
 # Canaan Avalon Nano 3s in Home Assistant
 
 The Avalon Nano 3s is a compact, low-power bitcoin miner designed for desktop or small space heating.

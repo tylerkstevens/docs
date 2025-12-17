@@ -1,3 +1,4 @@
+<!--explain in a detailed manner what the ocean mining pool integration does, how to install it and use it-->
 # Ocean Mining Pool - Exergy Home Assistant Integration
 
 Monitor your Ocean mining pool earnings and statistics directly in Home Assistant.

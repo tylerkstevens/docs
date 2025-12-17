@@ -1,3 +1,4 @@
+<!--explain the exact step by step process to complete the software and os system configruation for home assistant on a raspberry pi based home brain-->
 # Raspberry Pi Home Assistant System Configuration
 
 Install Home Assistant OS and configure it for hashrate heating control.

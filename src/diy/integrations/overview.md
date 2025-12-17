@@ -1,3 +1,4 @@
+<!--explain at a high level what home assistant integrations are, why exergy made our own, and what they do-->
 # Exergy Home Assistant Integrations
 
 Custom integrations for connecting mining hardware to Home Assistant.

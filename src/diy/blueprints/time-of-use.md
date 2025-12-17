@@ -1,3 +1,4 @@
+<!--explain in a detailed manner what this automation does, how to download and configure it, and how to customize and expand upon it-->
 # Time of Use Control - Exergy HA Blueprint
 
 Schedule your bitcoin miner to run during specific times based on electricity rates, daily schedules, or personal preferences.

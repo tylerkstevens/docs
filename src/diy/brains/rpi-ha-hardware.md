@@ -1,3 +1,4 @@
+<!--explain the exact step by step process to set up raspberry pi based hardware for home assistant os-->
 # Raspberry Pi Home Assistant Hardware Setup
 
 Everything you need to build a Raspberry Pi-based Home Assistant controller.

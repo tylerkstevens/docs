@@ -1,3 +1,4 @@
+<!--explain at a high level what home assistant automation blueprints are, why exergy made our own, and what they do-->
 # Exergy Home Assistant Automation Blueprints
 
 Pre-made Home Assistant automations you can import and customize for hashrate heating.

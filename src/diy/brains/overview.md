@@ -1,3 +1,4 @@
+<!--explain the high level overview of building your own HA home brain with various hardware-->
 # Build Your Own Home Assistant Brain
 
 Build or purchase your own Home Assistant controller to serve as the brain in your sovereign smart home.

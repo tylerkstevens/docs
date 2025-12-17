@@ -1,3 +1,4 @@
+<!--explain high level overview of building a raspberry pi based HA home brain-->
 # Raspberry Pi + Home Assistant
 
 Build a Home Assistant controller on Raspberry Pi - the same platform used in Exergy kits.

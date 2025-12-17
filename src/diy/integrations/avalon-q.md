@@ -1,3 +1,4 @@
+<!--explain in detail how to interact with, interperet sensor data, send commands, and view information for an avalon mini Q in ha using our canaan integration-->
 # Canaan Avalon Q in Home Assistant
 
 The Avalon Q is a higher-performance bitcoin miner suitable for larger heating applications.
