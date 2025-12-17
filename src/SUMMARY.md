@@ -6,25 +6,25 @@
 
 # DIY
 
-- [DIY Overview](./diy/overview.md)
-- [Home Assistant](./diy/home-assistant.md)
-  - [Build Your Own HA Brain](./diy/brains/overview.md)
-    - [Raspberry Pi](./diy/brains/rpi-ha.md)
-      - [Hardware Setup](./diy/brains/rpi-ha-hardware.md)
-      - [System Configuration](./diy/brains/rpi-ha-config.md)
-  - [Exergy HA Integrations](./diy/integrations/overview.md)
-    - [Canaan Avalon Home Miners](./diy/integrations/exergy-canaan.md)
-      - [Canaan Avalon Mini 3](./diy/integrations/avalon-mini-3.md)
-      - [Canaan Avalon Q](./diy/integrations/avalon-q.md)
-      - [Canaan Avalon Nano 3s](./diy/integrations/avalon-nano-3s.md)
-    - [Ocean Mining Pool Stats](./diy/integrations/ocean-pool.md)
-  - [Exergy HA Automation Blueprints](./diy/blueprints/overview.md)
-    - [Space Heater Thermostat Control](./diy/blueprints/space-heater.md)
-    - [HVAC Integrated Thermostat Control](./diy/blueprints/hvac.md)
-    - [Time of Use Control](./diy/blueprints/time-of-use.md)
-  - [Exergy HA Dashboard Templates](./diy/dashboards/overview.md)
-    - [Space Heater Digital Thermostat](./diy/dashboards/space-heater.md)
-    - [HVAC Integrated Wall+Digital Thermostat](./diy/dashboards/hvac.md)
+- [DIY Overview](./diy/overview.md) <!--overview of entire DIY section for all open source Exergy stuff-->
+- [Home Assistant](./diy/home-assistant.md) <!--overview of home assistant-->
+  - [Build Your Own HA Brain](./diy/brains/overview.md) <!--overview of building your own ha-->
+    - [Raspberry Pi](./diy/brains/rpi-ha.md) <!--overview of building a pi based ha-->
+      - [Hardware Setup](./diy/brains/rpi-ha-hardware.md) <!--hardware setup guide for pi based ha-->
+      - [System Configuration](./diy/brains/rpi-ha-config.md)<!--software config guide for pi based ha-->
+  - [Exergy HA Integrations](./diy/integrations/overview.md)<!--overview of exergy ha integrations-->
+    - [Canaan Avalon Home Miners](./diy/integrations/exergy-canaan.md) <!--overview of canaan home miner ha integration-->
+      - [Canaan Avalon Mini 3](./diy/integrations/avalon-mini-3.md) <!--mini 3 setup guide with exergy ha integration-->
+      - [Canaan Avalon Q](./diy/integrations/avalon-q.md) <!--Q setup guide with exergy ha integration-->
+      - [Canaan Avalon Nano 3s](./diy/integrations/avalon-nano-3s.md) <!--nano 3s setup guide with exergy ha integration-->
+    - [Ocean Mining Pool Stats](./diy/integrations/ocean-pool.md) <!--overview of ocean pool ha integration-->
+  - [Exergy HA Automation Blueprints](./diy/blueprints/overview.md) <!--overview of exergy ha automations-->
+    - [Space Heater Thermostat Control](./diy/blueprints/space-heater.md) <!--thermostat control automation guide-->
+    - [HVAC Integrated Thermostat Control](./diy/blueprints/hvac.md)  <!--hvac control automation guide-->
+    - [Time of Use Control](./diy/blueprints/time-of-use.md)  <!--time of use control automation guide-->
+  - [Exergy HA Dashboard Templates](./diy/dashboards/overview.md) <!--overview of exergy ha dashboards-->
+    - [Space Heater Digital Thermostat](./diy/dashboards/space-heater.md) <!--space heater dashboard guide-->
+    - [HVAC Integrated Wall+Digital Thermostat](./diy/dashboards/hvac.md) <!--hvac dashboard guide-->
 
 ---
 
