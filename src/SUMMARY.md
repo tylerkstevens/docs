@@ -31,6 +31,6 @@
 # Reference
 
 - [Reference Overview](./reference/overview.md)
-- [Home Assistant OS](./reference/ha-os.md)
-- [FAQ](./reference/faq.md)
+  - [Support](./reference/support.md)
+  - [FAQ](./reference/faq.md)
 
