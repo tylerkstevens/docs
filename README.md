@@ -1,15 +1,15 @@
 # Exergy Documentation
 
-Open-source documentation for hashrate heating with Home Assistant.
+Documentation Website for Exergy Hashrate Heating Systems.
 
-This repository contains the source files for [docs.exergyheat.com](https://docs.exergyheat.com) — guides for integrating bitcoin miners into your smart home heating system.
+This repository contains the source files for [docs.exergyheat.com](https://docs.exergyheat.com) — guides for integrating bitcoin miners into your smart home.
 
 ## What's Inside
 
-- **DIY Guides** — Set up Home Assistant, install Exergy integrations, configure automations
-- **Integration Docs** — Canaan Avalon miners, Ocean mining pool
-- **Automation Blueprints** — Thermostat control, HVAC integration, time-of-use scheduling
-- **Dashboard Templates** — Monitor and control your hashrate heating system
+- **DIY Guides** — Set up and configure bitcoin miner smart home control yourself
+- **Integration Docs** — Custom smart home applications for Canaan Avalon miners, Ocean mining pool, Datum Server and more
+- **Automation Blueprints** — Pre-built thermostat control, HVAC integration, time-of-use scheduling and more
+- **Dashboard Templates** — Copy and paste dashboards to monitor and control heat and sats from home miners
 
 ## Prerequisites
 
@@ -81,15 +81,17 @@ For bug reports and feature requests, open an issue on GitHub.
 
 ## Related Repositories
 
-- [Exergy Canaan Integration](https://github.com/exergyheat) — Home Assistant integration for Canaan miners
-- [Exergy Ocean Integration](https://github.com/exergyheat) — Home Assistant integration for Ocean pool
+- [Exergy Home Assistant Integration for Canaan Avalon Miners](https://github.com/exergyheat/ha-integration-canaan-avalon-home)
+- [Exergy's OCEAN Pool Integration for Home Assistant](https://github.com/exergyheat/ha-integration-ocean-pool)
+- [Exergy's Datum Gateway Integration for Home Assistant](https://github.com/exergyheat/ha-integration-datum-gateway)
 
-## License
+See our Home Assistant Integrations Index repository for a complete list.
 
-MIT License — see [LICENSE](LICENSE) for details.
+- [Index of Exergy's Home Assistant Integrations](https://github.com/exergyheat/ha-integrations-index)
 
-## Links
+## External Links
 
-- **Website**: [exergyheat.com](https://exergyheat.com)
+- **Company Website**: [exergyheat.com](https://exergyheat.com)
 - **Documentation**: [docs.exergyheat.com](https://docs.exergyheat.com)
-- **Community**: [support.exergyheat.com](https://support.exergyheat.com)
+- **Community & Support Forum**: [support.exergyheat.com](https://support.exergyheat.com)
+- **Office Demo Site Interface**: [demo.exergyheat.com](https://demo.exergyheat.com)
