@@ -1,78 +1,46 @@
 # Build Your Own Brain
 
-Build your own Home Assistant controller to replace the Exergy Home Assistant Brain.
+Build or purchase your own Home Assistant controller to serve as the brain in your sovereign smart home.
 
 ## Platform Options
 
 | Platform | Best For | Guide |
 |----------|----------|-------|
-| [Raspberry Pi](./rpi-ha.md) | Most DIYers, dedicated HA device | Full guide |
-| [StartOS](./startos-ha.md) | Bitcoin-native sovereignty stack | Full guide |
-| [Umbrel](./umbrel-ha.md) | Existing Umbrel users | Full guide |
+| [Raspberry Pi](./rpi-ha.md) | Most DIYers, dedicated HA device with a few extra features | Full guide |
+| [StartOS](./startos-ha.md) | Sovereign focused home server with advanced networking | *Coming soon* |
+| [Umbrel](./umbrel-ha.md) | Sovereign focused home server | *Coming soon* |
 
-## What You Need
-
-### Hardware (Raspberry Pi Path)
-
-| Component | Specification | Est. Cost |
-|-----------|---------------|-----------|
-| Raspberry Pi 5 | 4GB or 8GB RAM | $60-80 |
-| Power Supply | Official 27W USB-C | $12 |
-| Storage | 64GB+ microSD or NVMe SSD | $15-50 |
-| Case | Any compatible case | $10-40 |
-| Ethernet Cable | Cat5e or better | $5 |
-
-**Optional for Kit 2 equivalent:**
-| Component | Specification | Est. Cost |
-|-----------|---------------|-----------|
-| Zigbee Coordinator | Sonoff ZBDongle-E or similar | $20-30 |
-
-Total: ~$100-200 depending on options
-
-### Software
-
-All software is free:
-- Home Assistant OS (or Container/Core)
-- Exergy Canaan Integration (via HACS)
-- Automation blueprints
-- Dashboard templates
-
-## Comparison to Exergy Brain
-
-| Feature | Exergy Brain | DIY |
-|---------|--------------|-----|
-| Setup time | Plug and play | 1-2 hours |
-| Pre-configured | Yes | No |
-| Hardware warranty | Yes | Component warranties |
-| Support | Full Exergy support | Community + docs |
-| Cost | Kit price | ~$100-200 |
-| Customization | Some | Full |
-
-## Choose Your Path
+## What You'll End Up With
 
 ### Raspberry Pi + Home Assistant OS
 
-**Best for:** Dedicated HA device, most similar to Exergy Brain
+**Best for:** Dedicated HA device
 
-This is the path our kits use. You'll end up with essentially the same system we sell, but built yourself.
+This is the path our product kits use. You'll end up with essentially the same system we sell, but built yourself.
 
 [Raspberry Pi Guide →](./rpi-ha.md)
 
-### StartOS + Home Assistant
+### StartOS Server + Home Assistant (Container)
 
-**Best for:** Users who want HA alongside their Bitcoin node
+**Best for:** Users who want HA alongside their Bitcoin node and other StartOS services
 
-Run Home Assistant as a service on StartOS, Integrated with your sovereign computing stack.
+Run Home Assistant in a container as a service on StartOS, integrated with your sovereign computing stack.
 
-[StartOS Guide →](./startos-ha.md)
+[StartOS Guide →](./startos-ha.md) *coming soon*
 
-### Umbrel + Home Assistant
+### Umbrel Server + Home Assistant (Container)
 
-**Best for:** Existing Umbrel users
+**Best for:** Users who want HA alongside their Bitcoin node and other Umbrel services
 
-Add Home Assistant to your existing Umbrel installation as an app.
+Run Home Assistant in a container as an application on Umbrel, integrated with your sovereign computing stack.
 
-[Umbrel Guide →](./umbrel-ha.md)
+[Umbrel Guide →](./umbrel-ha.md) *coming soon*
+
+## Where to Buy
+- [Exergy](https://exergyheat.com/products) *Dedicated Home Assistant kits for Exergy systems*
+- [Home Assistant](https://www.home-assistant.io/green/) *Plug and play Home Assistant brains*
+- [Start9 Labs](https://store.start9.com) *Robust Bitcoin native home servers with advanced security and privacy*
+- [Umbrel](https://umbrel.com) *Bitcoin native home servers with a focus on simplicity*
 
 ## Other Platforms
 

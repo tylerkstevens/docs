@@ -75,5 +75,3 @@ See individual GitHub repositories for contribution guidelines.
 - **[Community Guides Forum](https://support.exergyheat.com/c/guides/6)** - Share your smart home automations, dashboards and discover tips
 - **[Software Support Forum](https://support.exergyheat.com/c/sw-support/14)** - Get help with specific issues
 - **[GitHub Issues](https://github.com/exergyheat)** - Report bugs, request features, submit PRs
-
-
