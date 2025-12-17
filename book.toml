@@ -2,7 +2,7 @@
 authors = ["Tyler Stevens"]
 language = "en"
 src = "src"
-title = "Exergy Documentation"
+title = "Exergy Docs"
 description = "Documentation for Exergy heating system upgrades and bitcoin mining powered smart home solutions"
 
 [build]
