@@ -1,148 +1,101 @@
-<!--explain high level overview of building a raspberry pi based HA home brain-->
 # Raspberry Pi + Home Assistant
 
 Build a Home Assistant controller on Raspberry Pi - the same platform used in Exergy kits.
 
-This guide is split into two parts:
+## Guide Overview
 
-1. **[Hardware Setup](./rpi-ha-hardware.md)** - Components you need and how to assemble them
+This guide walks you through building a Raspberry Pi-based Home Assistant "brain" - a small home server that controls your bitcoin mining heaters and monitors your home environment.
+
+The guide is split into two parts:
+
+1. **[Hardware Setup](./rpi-ha-hardware.md)** - Assembling your Raspberry Pi and components
 2. **[System Configuration](./rpi-ha-config.md)** - Installing and configuring Home Assistant OS
 
-## Quick Start
-
-If you're ready to dive in:
-- Already have hardware? Skip to [System Configuration](./rpi-ha-config.md)
-- Starting from scratch? Begin with [Hardware Setup](./rpi-ha-hardware.md)
+Before diving into those tutorials, review this page to understand what you'll need and why.
 
 ---
 
-## Hardware Requirements
+## Required Components
 
-### Required
+| Component | Description |
+|-----------|-------------|
+| **Raspberry Pi 5** | A small single-board computer that runs Home Assistant OS. This is the "brain" of your smart home system. 4GB or 8GB RAM models both work. |
+| **Power Supply** | Powers the Raspberry Pi. Use the official 27W USB-C power supply - inadequate power causes instability and crashes. |
+| **NVMe M.2 SSD** | Where your data is stored. Home Assistant writes sensor data frequently, so solid-state storage is essential. 128GB-256GB recommended. |
+| **NVMe Expansion HAT** | An add-on board that connects the NVMe SSD to the Raspberry Pi. Required since the Pi doesn't have a built-in M.2 slot. |
+| **Case with Cooling Fan** | Keeps the Pi cool and quiet. Active cooling (a fan) is recommended since the Pi 5 runs warm under load. |
+| **Ethernet Cable** | Cat5e or better. Required for initial setup. |
 
-| Component | Recommendation | Notes |
-|-----------|----------------|-------|
-| Raspberry Pi | Pi 5 (4GB or 8GB) | Pi 4 also works |
-| Power Supply | Official 27W USB-C | Adequate power critical |
-| Storage | 64GB+ microSD or NVMe SSD | SSD recommended for reliability |
-| Case | Any compatible | Argon One, Flirc, etc. |
-| Ethernet | Cat5e cable | WiFi possible but not recommended |
+## Optional Components
 
-### Optional (for Zigbee/Kit 2 equivalent)
+| Component | Description |
+|-----------|-------------|
+| **Zigbee Coordinator** | A USB or radio-to-pi_hat antenna that listens for Zigbee radio signals (not WiFi). Enables communication with Zigbee sensors and devices like temperature sensors. Recommended to minimize Wi-Fi connected devices in the home and increase stability. |
 
-| Component | Recommendation | Notes |
-|-----------|----------------|-------|
-| Zigbee Coordinator | Sonoff ZBDongle-E | USB dongle style |
-| Temperature Sensor | Sonoff SNZB-02 or Aqara | Zigbee sensor |
+## For Installing Home Assistant OS
 
-## Installation Steps
+You'll need one of the following setups to flash Home Assistant OS onto your NVMe SSD. See [System Configuration](./rpi-ha-config.md) for details on each method.
 
-### Step 1: Flash Home Assistant OS
+**Option A: Network Installer (Recommended)**
 
-1. Download [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
-2. Insert microSD card (or NVMe via adapter)
-3. In Imager, select:
-   - Device: Your Raspberry Pi model
-   - OS: Other specific-purpose OS → Home assistants → Home Assistant OS
-   - Storage: Your SD card
-4. Click Write and wait for completion
+| Component | Description |
+|-----------|-------------|
+| **HDMI Cable** | To connect Pi to a display. Some cases/expansion boards include full-size HDMI ports; otherwise you'll need a Micro-HDMI to HDMI cable or adapter. |
+| **Monitor or TV** | Any display with HDMI input to see the installer GUI. |
+| **USB Keyboard** | To navigate the Network Installer menus. |
 
-### Step 2: First Boot
+**Option B: Raspberry Pi Imager**
 
-1. Insert storage into Raspberry Pi
-2. Connect ethernet cable to router
-3. Connect power
-4. Wait 5-10 minutes for initial setup
+| Component | Description |
+|-----------|-------------|
+| **NVMe-to-USB Adapter** | Allows you to connect your NVMe SSD to a computer for flashing before installing it in the Pi case. |
+| **Computer** | Mac, Windows, or Linux computer to run Raspberry Pi Imager. |
 
-### Step 3: Access Home Assistant
+---
 
-1. Open browser to: `http://homeassistant.local:8123`
-2. If that doesn't work, check your router for the Pi's IP address
-3. Complete the onboarding wizard:
-   - Create your user account
-   - Set your location (for weather/sun automations)
-   - Choose what to share with HA analytics
+## Important: Don't Use MicroSD Cards
 
-### Step 4: Install HACS
+The Raspberry Pi has a microSD card slot, and Home Assistant OS *can* run from an SD card. **However, this is not recommended.**
 
-HACS (Home Assistant Community Store) is required for Exergy integrations:
+Home Assistant continuously writes sensor data, logs, and database updates. This constant read/write activity wears out microSD cards quickly - often within months. When the card fails, you lose your configuration and automation history.
 
-1. In Home Assistant, go to **Settings → Add-ons → Add-on Store**
-2. Search for "Terminal & SSH" and install it
-3. Start the add-on and open the terminal
-4. Run the HACS installation command from [hacs.xyz](https://hacs.xyz/docs/setup/download)
-5. Restart Home Assistant
-6. Go to **Settings → Devices & Services → Add Integration**
-7. Search for "HACS" and complete setup
+**Always use an NVMe SSD** for reliable, long-term operation. It's faster and will last years instead of months.
 
-### Step 5: Install Exergy Canaan Integration
+---
 
-1. In HACS, go to **Integrations**
-2. Click **+ Explore & Download Repositories**
-3. Search for "Exergy Canaan"
-4. Download and install
-5. Restart Home Assistant
-6. Go to **Settings → Devices & Services → Add Integration**
-7. Search for "Exergy Canaan" and configure
+## Network Requirements
 
-See [Exergy Canaan Integration](../integrations/exergy-canaan.md) for detailed configuration.
+**For initial setup:** You must connect via Ethernet cable. Home Assistant OS needs a wired connection for first-time configuration.
 
-### Step 6: (Optional) Set Up Zigbee
+**After setup:** You can switch to WiFi through Home Assistant settings if preferred.
 
-If using a Zigbee coordinator for temperature sensing:
+---
 
-1. Plug in USB Zigbee coordinator
-2. Go to **Settings → Devices & Services → Add Integration**
-3. Search for "ZHA" (Zigbee Home Automation)
-4. Follow prompts to configure the coordinator
-5. Pair sensors by putting them in pairing mode
+## Where to Buy Components
+Here's our Recommended Setup
 
-## Storage Recommendations
+| Component | Recommended Products | Where to Buy |
+|-----------|---------------------|--------------|
+| Raspberry Pi 5 (8GB) | Raspberry Pi 5 | [Amazon](https://www.amazon.com/Raspberry-Pi-8GB-SC1112-Quad-core/dp/B0CK2FCG1K/), [Micro Center](https://www.microcenter.com/product/673711/raspberry-pi-5), [PiShop](https://www.pishop.us/) |
+| Power Supply | Official 27W USB-C | [Amazon](https://www.amazon.com/iUniker-USB-C-Power-Supply-Raspberry/dp/B0FJLDFMF7/), [Micro Center](https://www.microcenter.com/product/671927/raspberry-pi-27w-usb-c-psu-black), [PiShop](https://www.pishop.us/) |
+| NVMe SSD | Samsung 970 EVO Plus, WD Blue SN570 | [Amazon](https://www.amazon.com/), [Micro Center](https://www.microcenter.com/), [Newegg](https://www.newegg.com/) |
+| NVMe Expansion Card + Case | Argon ONE V5 NVMe Base | [Amazon](https://www.amazon.com/Argon-Case-Raspberry-Aluminum-Single/dp/B0DKWMKBK2/) |
+| Zigbee Coordinator | Argon Industria / Sonoff | [Amazon (Works With Argon One V5 Case Only)](https://www.amazon.com/Argon-Forty-Industria-ZigBee-Module/dp/B0DWM9HKQB/), [Amazon](https://www.amazon.com/SONOFF-Gateway-Universal-Assistant-Wireless/dp/B09KXTCMSC/) |
 
-### microSD Card
+---
 
-- Works, but SD cards can fail over time
-- Use high-endurance cards (Samsung Pro Endurance, SanDisk Max Endurance)
-- Keep backups of your configuration
+## Tools Needed
 
-### NVMe SSD (Recommended)
+If you purchased a complete Raspberry Pi kit designed for Home Assistant, you likely have everything ready to assemble.
 
-- More reliable than SD cards
-- Faster performance
-- Requires NVMe hat or case with M.2 slot
-- Argon One V3 M.2 case is popular choice
+If you're sourcing components separately, you may need:
 
-## Backup Your Configuration
+- **Small Phillips screwdriver** - For mounting the Pi in the case and attaching the NVMe HAT
+- **Thermal paste or thermal pads** - Often included with cases, but verify before assembly
 
-Regular backups are critical:
-
-1. **Settings → System → Backups**
-2. **Create Backup**
-3. Download and store somewhere safe
-4. Consider automated backup add-ons (Google Drive, etc.)
+---
 
 ## Next Steps
 
-- [Import Automation Blueprints](../blueprints/overview.md)
-- [Set Up Dashboards](../dashboards/overview.md)
-- [Configure Your Miner](../integrations/exergy-canaan.md)
-
-## Troubleshooting
-
-### Can't access homeassistant.local
-
-- Try the IP address directly (check router admin panel)
-- Ensure Pi has completed initial boot (wait 10+ minutes)
-- Verify ethernet connection
-
-### HACS installation fails
-
-- Ensure you're using Terminal & SSH add-on (not basic SSH)
-- Check internet connectivity
-- Review HACS documentation at hacs.xyz
-
-### Zigbee devices won't pair
-
-- Move coordinator and sensor closer together for pairing
-- Put sensor in pairing mode (usually hold button 5+ seconds)
-- Check ZHA logs for errors
+Ready to build? Start with **[Hardware Setup](./rpi-ha-hardware.md)** to assemble your components.
+Just need to configure Home Assistant OS? Start with **[System Configuration](./rpi-ha-config.md)** to get things dialed in.
