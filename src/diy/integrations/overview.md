@@ -1,102 +1,77 @@
-<!--explain at a high level what home assistant integrations are, why exergy made our own, and what they do-->
-# Exergy Home Assistant Integrations
+<!--explain what home assistant integrations are, official vs custom integrations, and introduce Exergy integrations for bitcoin miners-->
+# Home Assistant Integrations
 
-Custom integrations for connecting mining hardware to Home Assistant.
+Integrations are how Home Assistant connects to your devices. Every smart device in your home - thermostats, lights, security cameras, and now bitcoin miners - uses its own platform or protocol. Integrations bring them all together into one system.
 
-## Available Integrations
+## What Are Integrations?
 
-| Integration | Purpose | Status |
-|-------------|---------|--------|
-| [Exergy Canaan](./exergy-canaan.md) | Control Canaan Avalon miners (Mini 3, Q, Nano 3s) | Available |
-| [Ocean Mining Pool](./ocean-pool.md) | Monitor mining earnings and pool stats | Available |
+Your smart thermostat has its own app. Your lights have another. Your security system has a third. Each device lives in its own silo with its own interface.
 
-## What Integrations Do
+Home Assistant integrations solve this by acting as connectors. Each integration:
 
-Home Assistant integrations connect external devices to HA, providing:
+- **Discovers or connects** to a specific device or service
+- **Creates entities** (sensors, switches, controls) you can use in Home Assistant
+- **Keeps data in sync** between the device and Home Assistant
 
-- **Entities** - Sensors, switches, and controls
-- **Services** - Actions you can call
-- **Events** - Triggers for automations
+Integrations handle the connection. Once your devices are connected, [automations](../blueprints/overview.md) handle the smart logic (when to turn things on, what triggers what), and [dashboards](../dashboards/overview.md) provide your control interface.
 
-## Exergy Canaan Integration
+## Official vs Custom Integrations
 
-Our primary integration for Canaan Avalon miners:
+### Official Integrations
 
-### Supported Models
+Home Assistant includes over 2,000 official integrations out of the box. These are:
 
-- [Avalon Mini 3](./avalon-mini-3.md) - Compact home miner, ~37 TH/s, ~1,100W
-- [Avalon Q](./avalon-q.md) - Higher performance, ~90 TH/s, ~2,800W
-- [Avalon Nano 3s](./avalon-nano-3s.md) - Desktop miner, ~3 TH/s, ~150W
+- Built into Home Assistant core
+- Maintained by Home Assistant team or Meet Home Assistant team criterea for offical integrations
+- Configured through **Settings → Devices & Services**
 
-### Features
+Common examples: Google Cast, Philips Hue, MQTT, Zigbee (ZHA), weather services.
 
-- Power on/off control
-- Work mode selection (Heating, Mining, Night)
-- Work level adjustment (Eco, Super)
-- Temperature monitoring (ambient, output, hashboard)
-- Hashrate and power consumption sensors
-- Update and reboot controls
+### Custom Integrations (HACS)
 
-[Full Documentation →](./exergy-canaan.md)
+HACS (Home Assistant Community Store) extends Home Assistant with community-developed integrations not included in the core.
 
-## Ocean Mining Pool Integration
+- **Community-built** - Developers create integrations for devices not officially supported
+- **Easy installation** - HACS provides a store-like interface for discovery and updates
+- **Where Exergy integrations *currently* live** - Our bitcoin miner integrations are available through HACS
 
-Monitor your mining earnings directly in Home Assistant:
+To use custom integrations, you first install HACS, documented [here](../brains/rpi-ha-config.md), then browse and install the integrations you need.
 
-- Pool hashrate and luck
-- Estimated daily earnings
-- Unpaid balance
-- Payout history
+## Common Integrations
 
-[Full Documentation →](./ocean-pool.md)
+People add integrations for all their smart devices:
 
-## Installation (All Integrations)
+| Category | Examples |
+|----------|----------|
+| Climate | Nest, Ecobee, Honeywell thermostats |
+| Lighting | Philips Hue, Lutron, LIFX |
+| Security | Ring, Arlo, Wyze cameras |
+| Media | Sonos, Roku, Apple TV |
+| Energy | Sense, Emporia, utility meters |
+| Protocols | Zigbee (ZHA), Z-Wave, Matter |
+| Weather | OpenWeatherMap, Met.no, NWS |
 
-All Exergy integrations are installed via HACS:
+Browse all official integrations at [home-assistant.io/integrations](https://www.home-assistant.io/integrations/).
 
-1. Ensure HACS is installed in Home Assistant
-2. Go to HACS → Integrations
-3. Search for the integration name
-4. Download and install
-5. Restart Home Assistant
-6. Add the integration via Settings → Devices & Services
+Browse all custom HACS integrations on the [HACS Github](https://github.com/hacs/default/blob/master/integration).
 
-## Other Useful Integrations
+## Exergy Integrations
 
-These built-in or community integrations complement hashrate heating:
+We built integrations to bring bitcoin miners into the smart home ecosystem. Connect, control, and monitor your home mining hardware just like any other IoT device.
 
-### ZHA (Zigbee Home Automation)
+| Integration | Purpose |
+|-------------|---------|
+| [Exergy Canaan](./exergy-canaan.md) | Control & monitor Canaan Avalon miners (Mini 3, Q, Nano 3s) |
+| [Ocean Mining Pool](./ocean-pool.md) | Monitor mining pool earnings and statistics |
 
-Built into Home Assistant. Used for:
-- Zigbee temperature sensors
-- Smart plugs
-- Motion sensors
-- etc.
+See a full list of Exergy Integrations here:
 
-[HA ZHA Documentation](https://www.home-assistant.io/integrations/zha/)
+[Index of Exergy's Home Assistant Integrations](https://github.com/exergyheat/ha-integrations-index)
 
-### Weather Integrations
+## GitHub
 
-For weather-based automations:
-- OpenWeatherMap
-- Met.no (default)
-- National Weather Service
-
-### Energy Monitoring
-
-Track energy usage:
-- Utility meter integration
-- Energy dashboard
-- Cost tracking
-
-## Development & Contributing
-
-All integrations are open source:
+All Exergy integrations are open source:
 
 **[github.com/exergyheat](https://github.com/exergyheat)**
 
-Contributions welcome:
-- Bug reports
-- Feature requests
-- Code contributions
-- Documentation improvements
+Contributions welcome—bug reports, feature requests, and code contributions.
