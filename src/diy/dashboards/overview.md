@@ -1,155 +1,105 @@
-<!--explain at a high level what home assistant dashboards are, why exergy made our own, and what they do-->
-# Exergy Home Assistant Dashboard Templates
+<!--explain what home assistant dashboards are, what templates are, and introduce Exergy dashboard templates for hashrate heating-->
+# Home Assistant Dashboards
 
-Pre-built Home Assistant dashboards for monitoring and controlling your hashrate heating system.
+Dashboards are your custom interface to Home Assistant. They're the screens where you see your data, control your devices, and monitor your systems—viewable from the companion mobile app or any web browser.
 
-## Available Dashboards
+## What Are Dashboards?
 
-*Dashboard templates expanding - check GitHub for latest*
+[Integrations](../integrations/overview.md) connect your devices. [Automations](../blueprints/overview.md) make them work together. Dashboards let you see and control everything.
 
-### Single Miner Overview
+A dashboard is a customizable screen you design:
 
-Monitor one miner with all key metrics:
-- Power status and controls
+- **Cards** display data (temperatures, hashrates, power consumption)
+- **Buttons** trigger actions (turn on miner, change work mode)
+- **Gauges and graphs** visualize trends over time
+- **Controls** adjust settings (target temperature, power levels)
+
+Think of it as building your own app interface. You decide exactly what information appears and how it's organized—like designing a custom control panel for your smart home.
+
+## What Are Dashboard Templates?
+
+Dashboard templates are pre-built configurations you can import and customize.
+
+Instead of designing from scratch, you:
+
+1. Import the template YAML
+2. Update entity IDs to match your devices
+3. Adjust layout and styling to your preference
+
+**Templates vs Dashboards:** A template is a shareable starting point (YAML file). A dashboard is your running interface. One template can be customized into many different dashboards for different setups.
+
+## Why Exergy Makes Dashboard Templates
+
+We design interfaces specifically for hashrate heating systems. Our templates show everything you need in one place:
+
+**Heating controls:**
+- Thermostat-style display (target temp, current temp)
+- Heating status (active, idle, off)
+- Mode selection (heating, mining, eco)
+
+**Miner stats:**
+- Real-time hashrate and power consumption
 - Temperature readings (intake, exhaust, hashboard)
-- Hashrate and power consumption
-- Work mode and level controls
+- Device status and work mode
 
-### Multi-Miner Fleet View
+**Mining earnings:**
+- Sats earned today/this month
+- Recent payout history
+- Pool statistics
 
-Monitor multiple miners at a glance:
-- Status grid for all miners
-- Total hashrate and power
-- Alert indicators
-- Quick controls
+It's like a smart thermostat display—but with your bitcoin mining data alongside the temperature controls. One glance tells you if your room is warm, your miner is healthy, and how much you've earned.
 
-### Room Thermostat Interface
+## Available Exergy Dashboard Templates
 
-Kit 2 style thermostat control:
-- Large temperature display
-- Set point adjustment
-- Current vs. target comparison
-- Heating status indicator
+| Template | Use Case |
+|----------|----------|
+| [Space Heater](./space-heater.md) | Thermostat-style interface for room heating with a miner |
+| [HVAC Integration](./hvac.md) | Whole-home system monitoring and control |
 
-### Energy Dashboard
+**Live Demo:** See a fully configured system at **[demo.exergyheat.com](https://demo.exergyheat.com)**
 
-Track mining economics:
-- Power consumption over time
-- Energy costs
-- Mining revenue (if integrated)
-- Net cost/savings
+All templates available on GitHub: **[github.com/exergyheat](https://github.com/exergyheat)**
 
-## Live Demo
+## Installing Dashboard Templates
 
-See a fully configured system:
+Two methods to install any template:
 
-**[demo.exergyheat.com](https://demo.exergyheat.com)**
+**Copy YAML (fastest)**
+1. Go to **Settings → Dashboards** and create a new dashboard
+2. Open the raw configuration editor (three dots menu)
+3. Paste the template YAML and update entity IDs
 
-*Note: Demo is view-only to protect our office heating system.*
+**Card by Card**
+1. Use the template as a visual reference
+2. Add cards manually in the dashboard editor
+3. Configure each card with your entities
 
-## GitHub Repository
+Each template's dedicated page has detailed installation and customization steps.
 
-All dashboard YAML configurations:
+## Building Your Own Dashboards
 
-**[github.com/exergyheat](https://github.com/exergyheat)**
+Home Assistant's dashboard editor is powerful and visual:
 
-## Installing Dashboards
+**Visual Editor** - Drag and drop cards, configure with forms, no code required.
 
-### Method 1: Copy YAML
+**YAML Mode** - Direct YAML editing for precise control and easy sharing.
 
-1. Download dashboard YAML from GitHub
-2. In Home Assistant, go to **Settings → Dashboards**
-3. Create a new dashboard (or edit existing)
-4. Click three dots → **Raw configuration editor**
-5. Paste the YAML
-6. Update entity IDs to match your system
-7. Save
+**Custom Cards** - Install community cards via HACS for advanced features:
+- mini-graph-card for compact history graphs
+- mushroom cards for modern, clean styling
+- button-card for highly customized controls
 
-### Method 2: Card by Card
+**Design tips:** Keep key info visible at a glance. Put common controls within easy reach. Test on both phone and desktop.
 
-1. View the dashboard template as reference
-2. In your dashboard, add cards one at a time
-3. Configure each card with your entity IDs
-4. Arrange as desired
+## Contributing Dashboard Templates
 
-## Customizing Dashboards
+Created a useful dashboard for hashrate heating? Share it with the community:
 
-### Change Entity IDs
+- **[Guides Forum](https://support.exergyheat.com/c/guides/6)** - Post screenshots and YAML
+- **[GitHub](https://github.com/exergyheat)** - Submit a PR to add your template to the official collection
 
-Templates use placeholder entity IDs. Replace with yours:
+## Learn More
 
-```yaml
-# Template might have:
-entity: switch.avalon_mini_3_power
-
-# Change to your actual entity:
-entity: switch.living_room_miner_power
-```
-
-### Adjust Layout
-
-- Drag cards to rearrange
-- Change card sizes in YAML
-- Add/remove sections as needed
-
-### Add Custom Cards
-
-Popular additions:
-- Mini-graph-card for history
-- Mushroom cards for clean UI
-- Button-card for custom controls
-- Apex charts for advanced graphs
-
-Install custom cards via HACS.
-
-## Dashboard Cards Used
-
-Our templates may use these card types:
-
-### Built-in Cards
-
-- **Entities** - List of entity states
-- **Gauge** - Circular gauge display
-- **Thermostat** - Climate control interface
-- **Button** - Action buttons
-- **Sensor** - Single sensor display
-- **History graph** - Entity history
-
-### Custom Cards (via HACS)
-
-- **mini-graph-card** - Compact graphs
-- **mushroom** - Modern card set
-- **button-card** - Advanced button customization
-
-Install these via HACS → Frontend before using templates that require them.
-
-## Building Your Own
-
-### Start Simple
-
-Begin with basic cards showing your entities, then enhance:
-
-1. Add an entities card with your miner sensors
-2. Add gauge cards for temperatures
-3. Add buttons for controls
-4. Add graphs for history
-
-### Design Principles
-
-- **Glanceable** - Key info visible at a glance
-- **Actionable** - Controls easily accessible
-- **Informative** - Details available when needed
-- **Responsive** - Works on phone and desktop
-
-### Inspiration
-
-- [Home Assistant Dashboard Gallery](https://www.home-assistant.io/dashboards/)
-- [Reddit r/homeassistant](https://www.reddit.com/r/homeassistant/)
-- [Exergy Demo](https://demo.exergyheat.com)
-
-## Sharing Dashboards
-
-Created a great dashboard? Share it:
-
-- **[Guides Forum](https://support.exergyheat.com/c/guides/6)** - Screenshots and YAML
-- **[GitHub](https://github.com/exergyheat)** - Submit PR for official templates
+- **[Home Assistant Dashboard Docs](https://www.home-assistant.io/dashboards/)** - Complete dashboard reference
+- **[Exergy Demo](https://demo.exergyheat.com)** - Live example of configured dashboards
+- **[Exergy Community Forum](https://support.exergyheat.com/)** - Get help and share ideas
