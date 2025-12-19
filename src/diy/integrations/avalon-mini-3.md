@@ -78,6 +78,8 @@ When connected via the Exergy Canaan integration, these sensors are available:
 | Update | `button.avalon_mini_3_update` | Trigger Manual Sensor Update |
 | Reboot | `button.avalon_mini_3_reboot` | Trigger reboot |
 
+![Mini 3 Dashboard](../../assets/exergy-canaan-integration/mini-3-interface.png)
+
 ## Heating Capacity
 
 The Mini 3 produces approximately **2,900 BTU/hr** at full power, comparable to a medium-sized space heater.
