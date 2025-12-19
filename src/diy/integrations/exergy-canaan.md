@@ -41,7 +41,7 @@ Click each model for detailed specifications, sensors, and controls.
 
 - Home Assistant with HACS installed
 - Miner on same network as Home Assistant
-- Miner's IP address
+- [Miner's IP address](../../diy/integrations/exergy-canaan.html#finding-your-miners-ip-address)
 
 ### Step 1: Install via HACS
 
@@ -57,8 +57,23 @@ Click each model for detailed specifications, sensors, and controls.
 1. Go to **Settings → Devices & Services**
 2. Click **+ Add Integration**
 3. Search for "Exergy Canaan"
-4. Enter your miner's IP address
-5. Click **Submit**
+
+![Search for Exergy Canaan integration](../../assets/exergy-canaan-integration/exergy-canaan-search.png)
+
+4. Enter your miner's IP address and click **Submit**
+
+![Add IP Address](../../assets/exergy-canaan-integration/exergy-canaan-add-ip.png)
+
+5. Give this device a name like "Avalon Mini 3"
+
+![Name Device](../../assets/exergy-canaan-integration/configure-miner.png)
+
+6. Your device has now been added.<br>
+Give it a friendly name like "Upstairs Conference Room Mini 3".<br>
+Optionally, you can also asign it to an area in your house.<br>
+Click **Skip and finish** when you're done.
+
+![Last Configuration](../../assets/exergy-canaan-integration/device-created.png)
 
 ### Step 3: Verify
 
@@ -67,6 +82,7 @@ The integration should create:
 - Multiple entities (controls and sensors)
 
 Check the device page to see all available entities.
+![Entity Page](../../assets/exergy-canaan-integration/mini-3-interface.png)
 
 ## Finding Your Miner's IP Address
 

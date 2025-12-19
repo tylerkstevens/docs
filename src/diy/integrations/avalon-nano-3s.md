@@ -7,7 +7,7 @@ The Avalon Nano 3s is a compact, low-power bitcoin miner designed for desktop or
 
 | Spec | Value |
 |------|-------|
-| Hashrate | ~3 TH/s (varies by mode) |
+| Hashrate | ~6 TH/s (varies by mode) |
 | Power | ~150W |
 | Heat Output | ~500 BTU/hr |
 | Noise Level | ~40 dB |
@@ -18,15 +18,15 @@ The Avalon Nano 3s is a compact, low-power bitcoin miner designed for desktop or
 
 The Nano 3s supports operating modes via the Exergy integration:
 
-### Heating Mode
+### High Mode
 - Optimized for consistent heat output
 - Standard fan operation
 
-### Mining Mode
+### Mid Mode
 - Optimized for hashrate/efficiency
 - Standard operation
 
-### Night Mode
+### Low Mode
 - Reduced noise operation
 - Lower fan speeds
 - Reduced hashrate
@@ -46,9 +46,15 @@ When connected via the Exergy Canaan integration:
 
 | Control | Entity Example | Options |
 |---------|----------------|---------|
-| Power | `switch.avalon_nano_3s_power` | On/Off |
-| Work Mode | `select.avalon_nano_3s_work_mode` | Heating, Mining, Night |
+| Work Mode | `select.avalon_nano_3s_work_mode` | High, Medium, Low |
+| Light Control | `light.avalon_nano_3s_led` | LED Light Color Selection |
+| Light Effects | `light.avalon_nano_3s_led_effect` | LED Light Effect Selection (Off, On, Flash, Breath, Loop) |
 | Reboot | `button.avalon_nano_3s_reboot` | Trigger reboot |
+
+Unfortunantely, the Nano 3s API doesn't support basic power controls. We suggest pairing this with a smart outlet (WiFi, Zigbee, etc.) to completely turn it on and off.
+
+![Avalon Mini 3s Dashboard](../../assets/exergy-canaan-integration/avalon-nano3s-dashboard.png)
+![Nano 3s Light Control](../../assets/exergy-canaan-integration/nano-3s-light-control.png)
 
 ## Heating Capacity
 
@@ -91,19 +97,11 @@ The Nano 3s has minimal power requirements:
 
 ## Network Setup
 
-The Nano 3s can connect via WiFi or ethernet:
-
-### WiFi Setup
-1. Power on the Nano 3s
-2. Use the Avalon Home app to configure WiFi
-3. Find IP address in app or router admin
-4. Add to Home Assistant via Exergy Canaan integration
-
-### Ethernet Setup
-1. Connect ethernet cable from miner to router
-2. Power on the miner
-3. Find IP address in router admin
-4. Add to Home Assistant
+1. Insert WiFi USB adapter
+2. Power on the Nano 3s
+3. Use the Avalon Home app to configure WiFi
+4. Find IP address in app or router admin
+5. Add to Home Assistant via Exergy Canaan integration
 
 ## Resources
 

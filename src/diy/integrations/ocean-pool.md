@@ -7,10 +7,9 @@ Monitor your Ocean mining pool earnings and statistics directly in Home Assistan
 
 [Ocean](https://ocean.xyz) is a bitcoin mining pool focused on decentralization and transparency. Key features:
 
-- **Non-custodial** - Payouts directly to your wallet
-- **Transparent** - Block template selection visible
+- **Transparent** - Block template selection visible (or build your own with DATUM)
 - **No KYC** - Privacy-respecting
-- **TIDES payout** - Fair reward distribution
+- **TIDES payout** - Fair reward distribution (similar to PPLNS)
 
 ## Integration Features
 
@@ -20,12 +19,36 @@ The Exergy Ocean integration provides:
 
 | Sensor | Description |
 |--------|-------------|
-| Hashrate (24h) | Your average hashrate over 24 hours |
-| Estimated Daily Earnings | Projected daily sats based on current hashrate |
-| Unpaid Balance | Current unpaid earnings |
-| Last Payout | Amount and time of last payout |
-| Pool Hashrate | Total Ocean pool hashrate |
-| Pool Luck | Current pool luck percentage |
+| Mining Account Hashrate (60s) | Current hashrate (60-second average) in TH/s |
+| Mining Account Hashrate (300s) | Current hashrate (300-second average) in TH/s |
+| Mining Account Shares (60s) | Shares submitted in last 60 seconds |
+| Mining Account Shares (300s) | Shares submitted in last 300 seconds |
+| Mining Account Shares in Tides | Total shares in TIDES |
+| Mining Account Estimated Earnings Next Block | Estimated BTC earnings for next block |
+| Mining Account Estimated Bonus Next Block | Estimated bonus BTC for next block |
+| Mining Account Estimated Total Earnings Next Block | Total estimated earnings for next block |
+| Mining Account Estimated Payout Next Block | Estimated payout for next block |
+| Mining Account Unpaid Balance | Unpaid BTC balance |
+| Mining Account Unpaid Balance USD | Unpaid balance converted to USD (requires sensor.exchange_rate_1_btc) |
+| Mining Account Last Share Timestamp | Timestamp of last submitted share |
+| Mining Account Active Workers | Count of currently active workers |
+| Mining Account Lifetime Earnings | Total lifetime BTC earnings (scraped from website) |
+
+**Note:** The USD conversion sensor requires an existing exchange rate sensor at `sensor.exchange_rate_1_btc`. Consider using the [Home Assistant Bitcoin integration](https://www.home-assistant.io/integrations/bitcoin/)
+
+### Worker Specific Sensors
+
+Workers are **automatically discovered** - if you have 3 workers, you'll get 18 additional sensors (6 per worker). Each worker appears as its own device under the main mining account device. For each worker detected, the following sensors are created dynamically:
+
+| Sensor | Description |
+|--------|-------------|
+| {worker_name} Hashrate (60s)| Worker's hashrate (60-second average) in TH/s |
+| {worker_name} Hashrate (300s) | Worker's hashrate (300-second average) in TH/s |
+| {worker_name} Last Share | Timestamp of worker's last submitted share |
+| {worker_name} Estimated Earnings Next Block | Worker's estimated BTC earnings for next block |
+| {worker_name} Lifetime Earnings | Worker's total lifetime BTC earnings (scraped from website) |
+| {worker_name} Status | Connected or Disconnected |
+
 
 ## Installation
 
@@ -117,14 +140,6 @@ Your Ocean wallet address is the bitcoin address you configured when setting up 
 
 1. This is the address in your miner's pool configuration
 2. It's also visible at `ocean.xyz/[your-address]`
-
-## Multiple Miners, One Pool
-
-If you have multiple miners pointing to the same Ocean wallet address, the integration shows combined statistics for all miners.
-
-To track individual miner contributions:
-- Use the Exergy Canaan integration for per-device hashrate
-- Ocean integration shows pool-reported totals
 
 ## Troubleshooting
 
