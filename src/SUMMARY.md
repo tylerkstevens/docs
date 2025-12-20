@@ -28,6 +28,13 @@
 
 ---
 
+# Calculators
+
+- [Calculators Overview](./calculators/overview.md)
+  - [Hashrate Heating Calculator](./calculators/hashrate-heating.md)
+
+---
+
 # Reference
 
 - [Reference Overview](./reference/overview.md)
