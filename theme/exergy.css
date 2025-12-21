@@ -1,8 +1,8 @@
 /* Exergy Brand Colors
- * Primary Navy:    #2f3b69
- * Medium Blue:     #4970a5
- * Light Blue-Gray: #9ea8be
- * Slate Blue:      #718ebc
+ * Primary Blue:    #4970A5
+ * Primary Hover:   #3D5A8A
+ * Accent Blue:     #718EBC
+ * Light Accent:    #9EA8BE
  */
 
 /* ===== CUSTOM FONTS ===== */
@@ -52,68 +52,68 @@ body, .sidebar, .content, #searchbar {
 
 /* ===== LIGHT THEME (Light/Rust) ===== */
 .light, .rust {
-    --bg: #ffffff;
-    --fg: #2f3b69;
-    --sidebar-bg: #f5f7fa;
-    --sidebar-fg: #2f3b69;
-    --sidebar-non-existant: #9ea8be;
-    --sidebar-active: #4970a5;
-    --sidebar-spacer: #e0e4eb;
-    --scrollbar: #9ea8be;
-    --icons: #4970a5;
-    --icons-hover: #2f3b69;
-    --links: #4970a5;
-    --inline-code-color: #2f3b69;
-    --code-bg: #f5f7fa;
-    --theme-popup-bg: #ffffff;
-    --theme-popup-border: #9ea8be;
-    --theme-hover: #f5f7fa;
-    --quote-bg: #f5f7fa;
-    --quote-border: #4970a5;
-    --table-border-color: #e0e4eb;
-    --table-header-bg: #f5f7fa;
-    --table-alternate-bg: #fafbfc;
-    --searchbar-border-color: #9ea8be;
-    --searchbar-bg: #ffffff;
-    --searchbar-fg: #2f3b69;
-    --searchbar-shadow-color: rgba(47, 59, 105, 0.1);
-    --searchresults-header-fg: #2f3b69;
-    --searchresults-border-color: #e0e4eb;
-    --searchresults-li-bg: #f5f7fa;
-    --search-mark-bg: #718ebc;
+    --bg: #FAFAFA;
+    --fg: #18181B;
+    --sidebar-bg: #F4F4F5;
+    --sidebar-fg: #18181B;
+    --sidebar-non-existant: #A1A1AA;
+    --sidebar-active: #4970A5;
+    --sidebar-spacer: #E4E4E7;
+    --scrollbar: #A1A1AA;
+    --icons: #4970A5;
+    --icons-hover: #3D5A8A;
+    --links: #4970A5;
+    --inline-code-color: #18181B;
+    --code-bg: #F4F4F5;
+    --theme-popup-bg: #F4F4F5;
+    --theme-popup-border: #D4D4D8;
+    --theme-hover: #E4E4E7;
+    --quote-bg: #F4F4F5;
+    --quote-border: #4970A5;
+    --table-border-color: #E4E4E7;
+    --table-header-bg: #F4F4F5;
+    --table-alternate-bg: #F7F7F8;
+    --searchbar-border-color: #D4D4D8;
+    --searchbar-bg: #F4F4F5;
+    --searchbar-fg: #18181B;
+    --searchbar-shadow-color: rgba(0, 0, 0, 0.1);
+    --searchresults-header-fg: #18181B;
+    --searchresults-border-color: #E4E4E7;
+    --searchresults-li-bg: #F4F4F5;
+    --search-mark-bg: #718EBC;
 }
 
 /* ===== DARK THEMES (Navy/Coal/Ayu) ===== */
 .navy, .coal, .ayu {
-    --bg: #1a1f35;
-    --fg: #e8eaf0;
-    --sidebar-bg: #141827;
-    --sidebar-fg: #e8eaf0;
-    --sidebar-non-existant: #6b7394;
-    --sidebar-active: #718ebc;
-    --sidebar-spacer: #2f3b69;
-    --scrollbar: #4970a5;
-    --icons: #718ebc;
-    --icons-hover: #9ea8be;
-    --links: #718ebc;
-    --inline-code-color: #9ea8be;
-    --code-bg: #141827;
-    --theme-popup-bg: #1a1f35;
-    --theme-popup-border: #2f3b69;
-    --theme-hover: #2f3b69;
-    --quote-bg: #141827;
-    --quote-border: #4970a5;
-    --table-border-color: #2f3b69;
-    --table-header-bg: #141827;
-    --table-alternate-bg: #1e2440;
-    --searchbar-border-color: #4970a5;
-    --searchbar-bg: #141827;
-    --searchbar-fg: #e8eaf0;
+    --bg: #27272A;
+    --fg: #FAFAFA;
+    --sidebar-bg: #18181B;
+    --sidebar-fg: #F4F4F5;
+    --sidebar-non-existant: #71717A;
+    --sidebar-active: #718EBC;
+    --sidebar-spacer: #3F3F46;
+    --scrollbar: #4970A5;
+    --icons: #718EBC;
+    --icons-hover: #9EA8BE;
+    --links: #718EBC;
+    --inline-code-color: #D4D4D8;
+    --code-bg: #18181B;
+    --theme-popup-bg: #18181B;
+    --theme-popup-border: #3F3F46;
+    --theme-hover: #3F3F46;
+    --quote-bg: #18181B;
+    --quote-border: #4970A5;
+    --table-border-color: #3F3F46;
+    --table-header-bg: #18181B;
+    --table-alternate-bg: #1f1f23;
+    --searchbar-border-color: #3F3F46;
+    --searchbar-bg: #18181B;
+    --searchbar-fg: #FAFAFA;
     --searchbar-shadow-color: rgba(0, 0, 0, 0.3);
-    --searchresults-header-fg: #e8eaf0;
-    --searchresults-border-color: #2f3b69;
-    --searchresults-li-bg: #1e2440;
-    --search-mark-bg: #4970a5;
+    --searchresults-header-fg: #FAFAFA;
+    --searchresults-border-color: #3F3F46;
+    --searchresults-li-bg: #18181B;
+    --search-mark-bg: #4970A5;
 }
 
 /* ===== LOGO IN SIDEBAR ===== */
