@@ -18,13 +18,13 @@
       - [Canaan Avalon Q](./diy/integrations/avalon-q.md) <!--Q setup guide with exergy ha integration-->
       - [Canaan Avalon Nano 3s](./diy/integrations/avalon-nano-3s.md) <!--nano 3s setup guide with exergy ha integration-->
     - [Ocean Mining Pool Stats](./diy/integrations/ocean-pool.md) <!--overview of ocean pool ha integration-->
-  - [Exergy HA Automation Blueprints](./diy/blueprints/overview.md) <!--overview of exergy ha automations-->
+  - [Exergy HA Automations & Templates<!-- Blueprints-->](./diy/blueprints/overview.md) <!--overview of exergy ha automations-->
     - [Space Heater Thermostat Control](./diy/blueprints/space-heater.md) <!--thermostat control automation guide-->
     - [HVAC Integrated Thermostat Control](./diy/blueprints/hvac.md)  <!--hvac control automation guide-->
     - [Time of Use Control](./diy/blueprints/time-of-use.md)  <!--time of use control automation guide-->
   - [Exergy HA Dashboard Templates](./diy/dashboards/overview.md) <!--overview of exergy ha dashboards-->
-    - [Space Heater Digital Thermostat](./diy/dashboards/space-heater.md) <!--space heater dashboard guide-->
-    - [HVAC Integrated Wall+Digital Thermostat](./diy/dashboards/hvac.md) <!--hvac dashboard guide-->
+    <!--- [Space Heater Digital Thermostat](./diy/dashboards/space-heater.md) <!--space heater dashboard guide-->-->
+    - [HVAC Integrated Wall+Digital Thermostat](./diy/dashboards/upstairs.md) <!--hvac dashboard guide-->
 
 ---
 

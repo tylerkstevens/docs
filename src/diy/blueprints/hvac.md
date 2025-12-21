@@ -52,7 +52,7 @@ This setup uses your miner as the primary heat source:
   └──────────────┘   └──────────────┘   └──────────────┘
 ```
 
-## Blueprint Installation
+<!--## Blueprint Installation
 
 ### Method 1: Import from GitHub
 
@@ -60,7 +60,7 @@ This setup uses your miner as the primary heat source:
 2. Click **Import Blueprint**
 3. Paste the URL:
    ```
-   https://github.com/exergyheat/ha-blueprints/blob/main/hvac-integrated-thermostat.yaml
+   https://github.com/exergyheat/ha-blueprints/blob/main/time-of-use-control.yaml
    ```
 4. Click **Preview Blueprint**
 5. Click **Import Blueprint**
@@ -68,8 +68,28 @@ This setup uses your miner as the primary heat source:
 ### Method 2: Manual YAML
 
 1. Download from [GitHub](https://github.com/exergyheat)
-2. Place in `/config/blueprints/automation/exergy/hvac-integrated-thermostat.yaml`
+2. Place in 
+```
+/config/blueprints/automation/exergy/time-of-use-control.yaml
+```
 3. Restart Home Assistant
+
+**Note**: You can reach this directory either via SSH or through the [Home Assistant File Editor Add-on](https://github.com/home-assistant/addons/tree/master/configurator)
+-->
+## Automation Installation
+
+To use any of the YAML automation examples provided at the bottom of this page:
+
+1. Copy the desired YAML code from the examples below
+2. In Home Assistant, navigate to **Settings → Automations & Scenes**
+3. Click the **three-dot menu** (⋮) in the top right corner
+4. Select **Edit in YAML**
+5. Paste the copied YAML code at the bottom of your automations file
+6. Adjust the **entity_id** values to match your specific miner entities
+7. Click **Save**
+8. The new automation(s) will appear in your automations list
+
+Alternatively, you can create each automation through the UI and manually configure the triggers, conditions, and actions based on the examples.
 
 ## Configuration
 
@@ -92,6 +112,8 @@ This setup uses your miner as the primary heat source:
 
 ### Traditional Thermostat Wiring
 
+**Note**: Our recommened thermostat is a Venstat T7900 for its ability to be controlled via local APIs without the need for Cloud interface or third party servers
+
 Standard HVAC wiring:
 - **W1**: Stage 1 heat (becomes miner via HA)
 - **W2**: Stage 2 heat (remains wired to furnace)
@@ -106,39 +128,45 @@ Standard HVAC wiring:
 3. W2 remains connected to furnace
 4. HA controls miner based on W1 signal
 
-**Consult an HVAC professional for your specific system.**
+**This is just an example. Please consult an HVAC professional for your specific system.**
 
 ## Example Configuration
 
 ```yaml
 automation:
-  - alias: "HVAC Stage 1 - Miner On"
-    trigger:
-      - platform: state
-        entity_id: climate.home_thermostat
+  - alias: Control switch based on upstairs thermostat heating
+    description: Turn switch on/off based on active heating state
+    triggers:
+      - entity_id: climate.thermostat
         attribute: hvac_action
-        to: "heating"
-    condition:
-      - condition: numeric_state
-        entity_id: sensor.thermostat_heating_stage
-        below: 2  # Only Stage 1
-    action:
-      - delay: "00:00:30"  # Delay to confirm call
-      - service: switch.turn_on
-        target:
-          entity_id: switch.avalon_q_power
-
-  - alias: "HVAC Stage 1 - Miner Off"
-    trigger:
-      - platform: state
-        entity_id: climate.home_thermostat
+        to: heating
+        id: heating_started
+        trigger: state
+      - entity_id: climate.thermostat
         attribute: hvac_action
-        from: "heating"
-    action:
-      - delay: "00:01:00"  # Delay before shutdown
-      - service: switch.turn_off
-        target:
-          entity_id: switch.avalon_q_power
+        from: heating
+        id: heating_stopped
+        trigger: state
+    conditions: []
+    actions:
+      - choose:
+          - conditions:
+              - condition: trigger
+                id: heating_started
+            sequence:
+              - action: switch.turn_on
+                data: {}
+                target:
+                  entity_id: switch.avalon_q_power
+          - conditions:
+              - condition: trigger
+                id: heating_stopped
+            sequence:
+              - action: switch.turn_off
+                data: {}
+                target:
+                  entity_id: switch.avalon_q_power
+    mode: restart
 ```
 
 ## Airflow Requirements
@@ -165,7 +193,7 @@ automation:
 
 ### Typical Savings
 
-With an Avalon Q (~9,500 BTU/hr):
+With an Avalon Q (~5,630 BTU/hr):
 - Covers ~30-50% of heating needs in moderate climates
 - Furnace runs significantly less
 - Bitcoin earnings offset electricity costs
@@ -178,9 +206,9 @@ With an Avalon Q (~9,500 BTU/hr):
 
 ## Troubleshooting
 
-### Miner not turning on with Stage 1
+### Miner not turning on
 
-- Verify thermostat is reporting stage to HA
+- Verify thermostat is reporting heating mode to HA
 - Check automation triggers are correct
 - Confirm miner is available in HA
 

@@ -19,7 +19,7 @@ Just like a space heater with a thermostat, but earning bitcoin while heating.
 - Temperature sensor in the room (Zigbee, WiFi, or any HA-compatible sensor)
 - Both devices configured in Home Assistant
 
-## Blueprint Installation
+<!--## Blueprint Installation
 
 ### Method 1: Import from GitHub
 
@@ -27,16 +27,36 @@ Just like a space heater with a thermostat, but earning bitcoin while heating.
 2. Click **Import Blueprint**
 3. Paste the URL:
    ```
-   https://github.com/exergyheat/ha-blueprints/blob/main/space-heater-thermostat.yaml
+   https://github.com/exergyheat/ha-blueprints/blob/main/time-of-use-control.yaml
    ```
 4. Click **Preview Blueprint**
 5. Click **Import Blueprint**
 
 ### Method 2: Manual YAML
 
-1. Download the blueprint from [GitHub](https://github.com/exergyheat)
-2. Place in `/config/blueprints/automation/exergy/space-heater-thermostat.yaml`
+1. Download from [GitHub](https://github.com/exergyheat)
+2. Place in 
+```
+/config/blueprints/automation/exergy/time-of-use-control.yaml
+```
 3. Restart Home Assistant
+
+**Note**: You can reach this directory either via SSH or through the [Home Assistant File Editor Add-on](https://github.com/home-assistant/addons/tree/master/configurator)
+-->
+## Automation Installation
+
+To use any of the YAML automation examples provided at the bottom of this page:
+
+1. Copy the desired YAML code from the examples below
+2. In Home Assistant, navigate to **Settings → Automations & Scenes**
+3. Click the **three-dot menu** (⋮) in the top right corner
+4. Select **Edit in YAML**
+5. Paste the copied YAML code at the bottom of your automations file
+6. Adjust the **entity_id** values to match your specific miner entities
+7. Click **Save**
+8. The new automation(s) will appear in your automations list
+
+Alternatively, you can create each automation through the UI and manually configure the triggers, conditions, and actions based on the examples.
 
 ## Configuration
 
@@ -46,9 +66,11 @@ When creating an automation from this blueprint:
 
 | Input | Description |
 |-------|-------------|
-| Miner Entity | Your miner's power switch (e.g., `switch.avalon_mini_3_power`) |
-| Temperature Sensor | Room temperature sensor (e.g., `sensor.living_room_temperature`) |
+| Miner Entity | Your miner's power switch (e.g., **switch.avalon_mini_3_power**) |
+| Temperature Sensor | Room temperature sensor (e.g., **sensor.living_room_temperature**) |
 | Target Temperature | Desired room temperature |
+
+**Note**: This example uses the Avalon Mini 3 onboard input or ambient temperature sensors for reporting to the thermostat. You could instead use a different temperature sensor in the room such as a Zigbee Temperature sensor.
 
 ### Optional Inputs
 
@@ -62,68 +84,90 @@ When creating an automation from this blueprint:
 
 Hysteresis prevents the miner from rapidly turning on and off:
 
-**Example with 70°F target and 1°F hysteresis:**
+**Example with 70°F target temperature and 1°F hysteresis:**
 - Miner turns ON when temp drops to 69°F
+  - This is the Cold Tolerance reference below
 - Miner turns OFF when temp rises to 71°F
+  - This is the Hot Tolerance reference below
 - 2°F total swing (target ± hysteresis)
 
 Increase hysteresis for longer, less frequent cycles. Decrease for tighter temperature control.
 
-## Example Configuration
+## Creating a Climate Helper
+
+The recommended approach is to create a **Generic Thermostat** climate entity that controls your miner. This gives you a native thermostat interface in Home Assistant.
+
+### Method 1: GUI Configuration
+
+1. Navigate to **Settings → Devices & Services → Helpers**
+2. Click **+ Create Helper**
+3. Select **Generic Thermostat**
+4. Configure the following:
+
+| Setting | Value | Description |
+|---------|-------|-------------|
+| Name | Exergy Office | Name for your thermostat |
+| Heater | switch.exergy_office_mini_3_power | Your miner's power switch |
+| Target Sensor | sensor.exergy_office_sensor_temperature | Room temperature sensor |
+| Min Temp | 60 | Minimum temperature setting |
+| Max Temp | 80 | Maximum temperature setting |
+| Target Temp | 70 | Default target temperature (this is editable from the dashboard after being deployed) |
+| Cold Tolerance | 1 | How far below target before turning on |
+| Hot Tolerance | 1 | How far above target before turning off |
+| Min Cycle Duration | 10 seconds | Minimum time heater stays in one state |
+
+5. Click **Create**
+
+### Method 2: YAML Configuration
+
+Add this to your **configuration.yaml** file:
 
 ```yaml
-# Created from blueprint
-automation:
-  - alias: "Living Room Miner Thermostat"
-    use_blueprint:
-      path: exergy/space-heater-thermostat
-      input:
-        miner_switch: switch.avalon_mini_3_power
-        temperature_sensor: sensor.living_room_temperature
-        target_temp: 70
-        hysteresis: 1.5
-        min_on_time: 10
-        min_off_time: 5
+climate:
+  - platform: generic_thermostat
+    name: Exergy Office
+    heater: switch.exergy_office_mini_3_power #Your Miner Power Switch
+    target_sensor: sensor.exergy_office_mini_3_ambient_temperature #Or use an external sensor like: sensor.exergy_office_sensor_temperature
+    min_temp: 60 #Set the lowest temp you'll allow this thermostat to be set
+    max_temp: 80 #Set the highest temp you'll allow this thermostat to be set 
+    ac_mode: false
+    target_temp: 70 #Default starting temp
+    cold_tolerance: 1
+    hot_tolerance: 1
+    min_cycle_duration:
+      seconds: 10
+    keep_alive:
+      minutes: 3
+    initial_hvac_mode: "heat" #Thermostat defaults to heating mode, can also be set to off
+    precision: 0.5 #Amout you want to be able to set the thermostat. 0.5 = 70,70.5,80, etc.
 ```
 
-## Manual YAML Alternative
+After adding the YAML configuration:
+1. Go to **Developer Tools → YAML**
+2. Click **Check Configuration**
+3. If valid, click **Restart** under **Server Controls**
 
-If you prefer to create the automation manually:
+### Understanding the Parameters
 
-```yaml
-automation:
-  - alias: "Miner Heater On"
-    trigger:
-      - platform: numeric_state
-        entity_id: sensor.living_room_temperature
-        below: 69  # target - hysteresis
-    condition:
-      - condition: state
-        entity_id: switch.avalon_mini_3_power
-        state: "off"
-    action:
-      - service: switch.turn_on
-        target:
-          entity_id: switch.avalon_mini_3_power
+| Parameter | Description |
+|-----------|-------------|
+| **heater** | The switch entity that controls your miner |
+| **target_sensor** | Temperature sensor that measures room temperature |
+| **cold_tolerance** | Temperature drops this much below target before turning ON |
+| **hot_tolerance** | Temperature rises this much above target before turning OFF |
+| **min_cycle_duration** | Prevents rapid on/off cycling |
+| **keep_alive** | Sends periodic updates to the heater switch |
+| **initial_hvac_mode** | Mode when Home Assistant starts ("heat" or "off") |
+| **precision** | Temperature adjustment increment (0.5 or 1.0) |
 
-  - alias: "Miner Heater Off"
-    trigger:
-      - platform: numeric_state
-        entity_id: sensor.living_room_temperature
-        above: 71  # target + hysteresis
-    condition:
-      - condition: state
-        entity_id: switch.avalon_mini_3_power
-        state: "on"
-    action:
-      - service: switch.turn_off
-        target:
-          entity_id: switch.avalon_mini_3_power
-```
+### Example: 70°F Target with 1° Tolerance
+- Miner turns **ON** when temperature drops to **69°F** (70 - 1)
+- Miner turns **OFF** when temperature rises to **71°F** (70 + 1)
+- Total swing: 2°F
 
 ## Tips
 
-### Sensor Placement
+### External Sensor Placement
 
 - Place temperature sensor at "living height" (3-5 feet)
 - Keep away from direct miner exhaust

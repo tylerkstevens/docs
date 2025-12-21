@@ -35,7 +35,7 @@ Run your miner during off-peak hours to maximize profitability.
 - Reduce during summer months
 - Adjust based on weather conditions
 
-## Blueprint Installation
+<!--## Blueprint Installation
 
 ### Method 1: Import from GitHub
 
@@ -51,8 +51,28 @@ Run your miner during off-peak hours to maximize profitability.
 ### Method 2: Manual YAML
 
 1. Download from [GitHub](https://github.com/exergyheat)
-2. Place in `/config/blueprints/automation/exergy/time-of-use-control.yaml`
+2. Place in 
+```
+/config/blueprints/automation/exergy/time-of-use-control.yaml
+```
 3. Restart Home Assistant
+
+**Note**: You can reach this directory either via SSH or through the [Home Assistant File Editor Add-on](https://github.com/home-assistant/addons/tree/master/configurator)
+-->
+## Automation Installation
+
+To use any of the YAML automation examples provided at the bottom of this page:
+
+1. Copy the desired YAML code from the examples below
+2. In Home Assistant, navigate to **Settings → Automations & Scenes**
+3. Click the **three-dot menu** (⋮) in the top right corner
+4. Select **Edit in YAML**
+5. Paste the copied YAML code at the bottom of your automations file
+6. Adjust the **entity_id** values to match your specific miner entities
+7. Click **Save**
+8. The new automation(s) will appear in your automations list
+
+Alternatively, you can create each automation through the UI and manually configure the triggers, conditions, and actions based on the examples.
 
 ## Configuration
 
@@ -129,6 +149,14 @@ automation:
       - platform: time
         at: "16:00:00"
     action:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.avalon_mini_3_power
+      - service: select.select_option
+        target:
+          entity_id: select.avalon_mini_3_work_mode
+        data:
+          option: "Heating"
       - service: select.select_option
         target:
           entity_id: select.avalon_mini_3_work_level
@@ -210,6 +238,7 @@ automation:
                 target:
                   entity_id: switch.avalon_mini_3_power
 ```
+**Note**: You can also make your own utility rate sensor via a helper entity
 
 ## Combining with Temperature Control
 
@@ -229,21 +258,22 @@ automation:
       - platform: time
         at: "16:00:00"
     action:
-      - service: automation.turn_off
+      - service: climate.set_hvac_mode
         target:
-          entity_id: automation.miner_thermostat_control
-      - service: switch.turn_off
-        target:
-          entity_id: switch.avalon_mini_3_power
+          entity_id: climate.your_thermostat
+        data:
+          hvac_mode: "off"
 
   - alias: "Off-Peak - Enable Thermostat"
     trigger:
       - platform: time
         at: "21:00:00"
     action:
-      - service: automation.turn_on
+      - service: climate.set_hvac_mode
         target:
-          entity_id: automation.miner_thermostat_control
+          entity_id: climate.your_thermostat
+        data:
+          hvac_mode: "heat"
 ```
 
 ## Tips
@@ -266,6 +296,13 @@ Create separate automations for:
 - Winter (heating priority)
 - Summer (mining only when profitable)
 - Shoulder seasons (flexible)
+
+### Dynamic Control of TOU Times
+
+Create separate 'helper' entities to edit on the fly such as:
+- Create a  date and/or time helper to set the different TOU periods
+  - Easier to edit this entity than the automation
+- Create a schedule helper to build out different triggers based on time periods
 
 ## Troubleshooting
 

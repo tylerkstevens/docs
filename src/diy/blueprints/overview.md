@@ -1,5 +1,5 @@
 <!--explain what home assistant automations are, what blueprints are, and introduce Exergy blueprints for hashrate heating-->
-# Home Assistant Automations & Blueprints
+# Home Assistant Automations and Templates<!-- & Blueprints-->
 
 Automations are the smart logic that makes your smart home actually smart. They connect your [integrations](../integrations/overview.md) together—triggering actions based on sensor readings, schedules, or device states. This is what transforms a bitcoin miner into a functional heater for your home.
 
@@ -17,7 +17,7 @@ Every automation follows the same pattern:
 
 This is the special sauce that lets a bitcoin miner replace your space heater, tie into your whole-home thermostat, or only run when electricity is cheap.
 
-## What Are Blueprints?
+<!--## What Are Blueprints?
 
 Blueprints are reusable automation templates.
 
@@ -33,7 +33,7 @@ Instead of building automation logic from scratch, you:
 ## Why Exergy Makes Blueprints
 
 We build blueprints for common hashrate heating scenarios so you don't have to figure out the automation logic yourself.
-
+-->
 **Use cases we cover:**
 
 - **Space heater replacement** - Miner maintains room temperature using a temp sensor
@@ -42,19 +42,19 @@ We build blueprints for common hashrate heating scenarios so you don't have to f
 - **Solar monetization** - Use excess solar production for mining instead of selling back cheap
 - **Scheduled operation** - Run on custom schedules with different modes
 
-These blueprints pair with Exergy hardware kits and installed systems, but work with any compatible setup.
+These automations pair with Exergy hardware kits and installed systems, but work with any compatible setup.
 
-## Available Exergy Blueprints
+## Available Exergy Automation Templates<!--Blueprints-->
 
-| Blueprint | Use Case |
+| Template <!--Blueprint--> | Use Case |
 |-----------|----------|
 | [Space Heater](./space-heater.md) | Room temperature control with miner as heat source |
 | [HVAC Integration](./hvac.md) | Whole-home thermostat integration |
 | [Time-of-Use](./time-of-use.md) | Optimize mining around electricity rates |
 
-See all Exergy blueprints: **[github.com/exergyheat](https://github.com/exergyheat)**
+See all Exergy Automations<!-- blueprints-->: **[github.com/exergyheat](https://github.com/exergyheat)**
 
-## Installing Blueprints
+<!--## Installing Blueprints
 
 Two methods to install any blueprint:
 
@@ -68,7 +68,7 @@ Two methods to install any blueprint:
 3. Restart Home Assistant
 
 Each blueprint's dedicated page has detailed installation and configuration steps.
-
+-->
 ## Building Your Own Automations
 
 Don't see what you need? Build custom automations:
@@ -81,7 +81,7 @@ Don't see what you need? Build custom automations:
 
 Home Assistant's automation system is powerful. Start with our blueprints, then customize or build your own as you learn.
 
-## Contributing Blueprints
+## Contributing Blueprints and Automations
 
 Created a useful automation for hashrate heating? Share it with the community:
 
