@@ -176,6 +176,27 @@ a:hover {
     font-weight: 600;
 }
 
+/* Section indicator vertical bars */
+/* Add border-left to nested chapter lists to show hierarchy */
+.sidebar .chapter ol {
+    border-left: 1px solid;
+    margin-left: 1.2em;
+    padding-left: 0.8em;
+}
+
+/* Light theme: black vertical bars */
+.light .sidebar .chapter ol,
+.rust .sidebar .chapter ol {
+    border-left-color: #18181B;
+}
+
+/* Dark theme: white vertical bars */
+.navy .sidebar .chapter ol,
+.coal .sidebar .chapter ol,
+.ayu .sidebar .chapter ol {
+    border-left-color: #FAFAFA;
+}
+
 /* Code blocks */
 pre {
     border-radius: 6px;
